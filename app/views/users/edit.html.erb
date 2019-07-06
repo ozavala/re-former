@@ -1,0 +1,34 @@
+<h2> Edit User </h2>
+
+<h3> form_for </h3>
+<%= form_for @user do |f| %>
+<%= f.label :username, 'Enter your username' %>:
+<%= f.text_field :username %><br>
+<%= f.label :email, 'Enter your email' %>:
+<%= f.text_field :email %><br>
+<%= f.label :password, 'Enter your password' %>:
+<%= f.password_field :password %><br>
+<%= f.submit %>
+<% end %> 
+
+<!--
+  <h3> form_with </h3>
+<%= form_with model: @user do |f| %>
+<%= f.label :user, 'Enter your username' %>
+<%= f.text_field :username %><br>
+<%= f.label :user, 'Enter your email' %>
+<%= f.text_field :email %><br>
+<%= f.label:user, 'Enter your password' %>
+<%= f.password_field :password %><br>
+<%= f.submit %>
+<% end %>
+-->
+<!--
+<h3> simple_form_for: </h3>
+<%= simple_form_for @user do |f| %>
+<%= f.input :username, label: 'Your username please:', error: 'Username is mandatory, please specify one' %>
+<%= f.input :email, label:  'Enter your email:',hint: 'Required' %>
+<%= f.input :password, label: 'Enter your password:', hint: 'No special characters.' %>
+<%= f.button :submit %>
+<% end %>
+-->

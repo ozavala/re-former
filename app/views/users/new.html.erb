@@ -1,4 +1,7 @@
- <!-- <form action="/users" method="post" class="form-user" accept-charset="UTF-8">
+<h2> New User </h2>
+ <!--
+   <span> html form </span>
+   <form action="/users" method="post" class="form-user" accept-charset="UTF-8">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-user">
     <label for='usernane'> Enter username: </label>
@@ -12,6 +15,7 @@
 </form> -->
 
 <!--
+<span> form_tag </span>
 <%= form_tag('/users') %>
 <%= label_tag 'Enter username' %>
 <%= text_field_tag 'username'  %><br>
@@ -21,3 +25,35 @@
 <%= password_field_tag 'password' %><br>
 <%= submit_tag 'Create' %>
 -->
+
+<!--
+  <span> form_for </span>
+<%= form_for @user do |f| %>
+<%= f.label :username, 'Enter your username' %>:
+<%= f.text_field :username %><br>
+<%= f.label :email, 'Enter your email' %>:
+<%= f.text_field :email %><br>
+<%= f.label :password, 'Enter your password' %>:
+<%= f.password_field :password %><br>
+<%= f.submit %>
+<% end %> -->
+
+<!--
+  <span> form_with </span>
+<%= form_with model: @user do |f| %>
+<%= f.label :user, 'Enter your username' %>
+<%= f.text_field :username %><br>
+<%= f.label :user, 'Enter your email' %>
+<%= f.text_field :email %><br>
+<%= f.label:user, 'Enter your password' %>
+<%= f.password_field :password %><br>
+<%= f.submit %>
+<% end %>
+-->
+<h3> simple_form_for: </h3>
+<%= simple_form_for @user do |f| %>
+<%= f.input :username, label: 'Your username please:', error: 'Username is mandatory, please specify one' %>
+<%= f.input :email, label:  'Enter your email:',hint: 'Required' %>
+<%= f.input :password, label: 'Enter your password:', hint: 'No special characters.' %>
+<%= f.button :submit %>
+<% end %>
